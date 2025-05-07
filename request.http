@@ -1,0 +1,42 @@
+### GET request to example server
+GET http://localhost:8080
+
+###
+
+GET http://localhost:8080/api/vi/software-engineers
+
+
+###
+
+GET http://localhost:8080/api/vi/software-engineers/1
+
+###
+# Get by name
+GET http://localhost:8080/api/vi/software-engineers/name/hassan
+
+###
+# Get by tech stack
+GET http://localhost:8080/api/vi/software-engineers/tech/java
+
+###
+# Delete by ID
+DELETE http://localhost:8080/api/vi/software-engineers/1
+
+###
+PUT http://localhost:8080/api/vi/software-engineers/1
+Content-Type: application/json
+
+{
+  "name": "hassan updated",
+  "techStack": "Java, Spring Boot, PostgreSQL"
+}
+
+
+###
+POST http://localhost:8080/api/vi/software-engineers
+Content-Type: application/json
+
+{
+  "name": "said",
+  "techStack": "python,java,dart"
+}

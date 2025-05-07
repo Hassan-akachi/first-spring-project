@@ -1,0 +1,22 @@
+services:
+  db:
+    container_name: postgres-spring-boot # Sets a custom container name
+    image: postgres:latest                # Uses the latest official PostgreSQL image
+    environment:
+      POSTGRES_USER: hassan               # Sets the PostgreSQL username
+      POSTGRES_PASSWORD: password         # Sets the PostgreSQL password
+      PGDATA: /data/postgres              # Sets the directory where PostgreSQL stores data
+    volumes:
+      - db:/data/postgres                 # Mounts the named volume 'db' to persist data
+    ports:
+      - "5332:5432"                       # Maps host port 5332 to container port 5432
+    networks:
+      - db                                # Connects the service to the 'db' network
+    restart: unless-stopped               # Automatically restarts the container unless manually stopped
+
+networks:
+  db:
+    driver: bridge                        # Uses the bridge driver for network isolation
+
+volumes:
+  db:                                     # Declares a named volume 'db' for persistent storage
